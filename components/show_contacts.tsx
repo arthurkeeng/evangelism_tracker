@@ -26,10 +26,27 @@ const ShowContacts = ({person } : {person : People[]}) => {
   };
 
   useEffect(() => {
+    console.log("Client loaded, window is:", typeof window);
+  }, []);
+  
+  useEffect(() => {
     // Initialize people from localStorage when the component mounts
     const local = JSON.parse(localStorage.getItem("people") || "[]");
     setPeople(local);
   }, [person]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("people");
+      if (stored) {
+        try {
+          setPeople(JSON.parse(stored));
+        } catch (err) {
+          console.error("Invalid JSON in localStorage", err);
+        }
+      }
+    }
+  }, []);
 
   return (
     <div className="p-6 max-w-xl mx-auto">
