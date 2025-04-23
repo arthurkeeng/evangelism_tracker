@@ -63,8 +63,8 @@ const EvangelismTrackForm = () => {
 
         // Optional: also update state if you're using it elsewhere
         setPeople(updatedPeople);
+    }
         toast.success("Successfully submitted");
-      }
     } catch (error) {
       console.error(error);
       toast.error("An Error Occured");
