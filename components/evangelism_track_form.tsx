@@ -55,7 +55,7 @@ const EvangelismTrackForm = () => {
         body: JSON.stringify(data),
       });
 
-      if (fetched.statusText === "OK") {
+      if (fetched.ok) {
         const newPerson = { name: data.name, phone: data.phone };
         const local = JSON.parse(localStorage.getItem("people") || "[]");
 
