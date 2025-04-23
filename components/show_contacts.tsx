@@ -44,8 +44,10 @@ const ShowContacts = ({person } : {person : People[]}) => {
       const stored = localStorage.getItem("people");
       if (stored) {
         try {
+          console.log('stored')
           setPeople(JSON.parse(stored));
         } catch (err) {
+          console.log("not stored")
           console.error("Invalid JSON in localStorage", err);
         }
       }
