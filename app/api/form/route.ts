@@ -2,7 +2,7 @@
 import {NextRequest , NextResponse} from 'next/server'
 
 export async function POST(req : NextRequest){
-    const url = 'https://script.google.com/macros/s/AKfycbz0u5PYP5-Z2zDQT8MrlYXSwHDz2r6d25eTY29kH0pXtZ2fxfttuNPiT985oCx4CnM05g/exec'
+    const url = 'https://script.google.com/macros/s/AKfycby7ATanhOVGjtzyIlkDpr4rqskqFN6UzQFJFtaVC1SK1HcZje2TnQt7qH-33JDeBCkndA/exec'
     
     const data = await req.json()
 
