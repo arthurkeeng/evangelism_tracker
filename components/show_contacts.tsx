@@ -8,9 +8,11 @@ interface People {
 }
 
 const ShowContacts = ({person } : {person : People[]}) => {
+  const [isClient, setIsClient] = useState(false);
   const [people, setPeople] = useState<People[]>([]);
   
   const handleClick = () => {
+    console.log('clicked')
     const local = JSON.parse(localStorage.getItem("people") || "[]");
 
     if (local && local.length > 0) {
@@ -25,15 +27,17 @@ const ShowContacts = ({person } : {person : People[]}) => {
     }
   };
 
+
   useEffect(() => {
-    console.log("Client loaded, window is:", typeof window);
+    setIsClient(true);
   }, []);
   
   useEffect(() => {
+    if(!isClient)return
     // Initialize people from localStorage when the component mounts
     const local = JSON.parse(localStorage.getItem("people") || "[]");
     setPeople(local);
-  }, [person]);
+  }, [person , isClient]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
