@@ -7,7 +7,7 @@ interface People {
   phone: string;
 }
 
-const ShowContacts = ({person }) => {
+const ShowContacts = ({person } : {person : People[]}) => {
   const [people, setPeople] = useState<People[]>([]);
   
   const handleClick = () => {
