@@ -1,13 +1,14 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { z } from "zod";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import ShowContacts from "./show_contacts";
 
 interface Person {
   name: string;
@@ -74,12 +75,10 @@ const EvangelismTrackForm = () => {
     }
   };
 
-  useEffect(() => {
-    const local = localStorage.getItem("people");
+ 
 
-    console.log("local is ", local);
-    console.log("people is ", people);
-  }, [people]);
+
+
   return (
     <div className="p-4 md:p-6 lg:p-8">
       <div className="mb-4 text-center bg-amber-500 font-bold rounded-3xl p-4">
@@ -172,6 +171,7 @@ const EvangelismTrackForm = () => {
           </button>
         </div>
       </form>
+      <ShowContacts person = {people}/>
     </div>
   );
 };

@@ -6,7 +6,6 @@ export async function POST(req : NextRequest){
     
     const data = await req.json()
 
-    console.log('the data is ' , data)
     const formBody = new URLSearchParams({
         Name: data.name,
         Address: data.address,
@@ -14,16 +13,14 @@ export async function POST(req : NextRequest){
         Email: data.email,
       }).toString();
 try {
-        console.log('the form body is ' , formBody)
 
     // const formBody = new URLSearchParams(body).toString();
     
-    const res = await fetch(url , {
+    await fetch(url , {
         method : 'POST' , 
          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
              body : formBody
     })
-    console.log('the res is ' , res)
     return NextResponse.json({message : "success"})
 } catch (error) {
     console.log('the error is ' , error)

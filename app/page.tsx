@@ -1,5 +1,5 @@
 import EvangelismTrackForm from "@/components/evangelism_track_form";
-import ShowContacts from "@/components/show_contacts";
+// import ShowContacts from "@/components/show_contacts";
 import { Metadata } from 'next';
 
 export const metadata : Metadata = {
@@ -12,7 +12,7 @@ export default function Home() {
       <div>
 
         <EvangelismTrackForm/>
-        <ShowContacts/>
+        
       </div>
 
   );
