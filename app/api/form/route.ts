@@ -11,6 +11,7 @@ export async function POST(req : NextRequest){
         Address: data.address || "123 johndoe street",
         Phone: data.phone,
         Email: data.email || "johndoe@gmail.com",
+        Comments : data.convert == "yes" ? "Person is a convert" : data.convert == "no" ? "Person is not a convert" : ""
       }).toString();
 try {
 

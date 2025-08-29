@@ -20,6 +20,7 @@ interface Data {
   phone: string;
   email?: string;
   address?: string;
+  convert?: string
 }
 const EvangelismTrackForm = () => {
   const [people, setPeople] = useState<Person[]>([]);
@@ -43,7 +44,13 @@ const EvangelismTrackForm = () => {
       .min(5, "Must be more than 5 characters")
       .or(z.literal("")) // allow empty string
       .optional(),
+    convert: z.enum(["yes", "no"], {
+      required_error: "Please select Yes or No",
+    })
+
   });
+
+
 
   const {
     register,
@@ -157,6 +164,24 @@ const EvangelismTrackForm = () => {
               />
               {errors.address && (
                 <p className="text-red-500 text-sm">{errors.address.message}</p>
+              )}
+            </div>
+            <div>
+              <Label htmlFor="convert" className="mb-3">
+                Convert?
+              </Label>
+              <select
+                id="convert"
+                {...register("convert")}
+                className={`border p-2 rounded-md w-full ${errors.convert ? "border-red-500" : ""
+                  }`}
+              >
+                <option value="">-- Select --</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+              {errors.convert && (
+                <p className="text-red-500 text-sm">{errors.convert.message}</p>
               )}
             </div>
           </div>
