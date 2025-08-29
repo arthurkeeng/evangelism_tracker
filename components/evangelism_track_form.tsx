@@ -29,12 +29,20 @@ const EvangelismTrackForm = () => {
   const phoneRegex = /^(\+234|0)[789][01]\d{8}$/;
 
   const evangelismTrackerSchema = z.object({
-    name: z.string().min(4, "Must be more than 4 characters"),
-    email: z.string().email().optional(),
+    name: z.string(),
+    email: z
+      .string()
+      .email("Invalid email")
+      .or(z.literal("")) // allow empty string
+      .optional(),
     phone: z.string().regex(phoneRegex, {
       message: "Invalid Nigerian phone number",
     }),
-    address: z.string().min(5, "Must be more than 5 characters").optional(),
+    address: z
+      .string()
+      .min(5, "Must be more than 5 characters")
+      .or(z.literal("")) // allow empty string
+      .optional(),
   });
 
   const {
@@ -64,8 +72,8 @@ const EvangelismTrackForm = () => {
 
         // Optional: also update state if you're using it elsewhere
         setPeople(updatedPeople);
-    }
-        toast.success("Successfully submitted");
+      }
+      toast.success("Successfully submitted");
     } catch (error) {
       console.error(error);
       toast.error("An Error Occured");
@@ -75,7 +83,7 @@ const EvangelismTrackForm = () => {
     }
   };
 
- 
+
 
 
 
@@ -171,7 +179,7 @@ const EvangelismTrackForm = () => {
           </button>
         </div>
       </form>
-      <ShowContacts person = {people}/>
+      <ShowContacts person={people} />
     </div>
   );
 };
