@@ -184,7 +184,7 @@ const EvangelismTrackForm = () => {
             </div>
           </div>
         </div>
-          <p>Fields marked with an asterisk ( * ) are required</p>
+          <p className="text-red-400">Fields marked with an asterisk ( * ) are required</p>
 
         <div className="pt-4">
           <button
