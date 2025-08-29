@@ -102,7 +102,7 @@ const EvangelismTrackForm = () => {
           <div className="flex flex-col space-y-4">
             <div>
               <Label htmlFor="name" className="mb-3">
-                Contact Name
+                Contact Name *
               </Label>
               <Input
                 type="text"
@@ -134,7 +134,7 @@ const EvangelismTrackForm = () => {
 
             <div>
               <Label htmlFor="phone" className="mb-3">
-                Phone
+                Phone *
               </Label>
               <Input
                 type="text"
@@ -166,7 +166,7 @@ const EvangelismTrackForm = () => {
             </div>
             <div>
               <Label htmlFor="convert" className="mb-3">
-                Convert?
+                Convert? *
               </Label>
               <select
                 id="convert"
