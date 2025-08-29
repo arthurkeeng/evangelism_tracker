@@ -46,7 +46,7 @@ const EvangelismTrackForm = () => {
       .optional(),
     convert: z.enum(["yes", "no"], {
       required_error: "Please select Yes or No",
-    })
+    }).optional()
 
   });
 
