@@ -20,7 +20,7 @@ interface Data {
   phone: string;
   email?: string;
   address?: string;
-  convert?: string
+  convert?: "yes" | "no"
 }
 const EvangelismTrackForm = () => {
   const [people, setPeople] = useState<Person[]>([]);
@@ -44,9 +44,7 @@ const EvangelismTrackForm = () => {
       .min(5, "Must be more than 5 characters")
       .or(z.literal("")) // allow empty string
       .optional(),
-    convert: z.enum(["yes", "no"], {
-      required_error: "Please select Yes or No",
-    }).optional()
+    convert: z.enum(["yes", "no"]).optional()
 
   });
 
