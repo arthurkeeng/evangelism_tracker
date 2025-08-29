@@ -8,9 +8,9 @@ export async function POST(req : NextRequest){
 
     const formBody = new URLSearchParams({
         Name: data.name,
-        Address: data.address || "",
+        Address: data.address || "123 johndoe street",
         Phone: data.phone,
-        Email: data.email || "",
+        Email: data.email || "johndoe@gmail.com",
       }).toString();
 try {
 
